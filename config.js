@@ -1,13 +1,18 @@
+require('dotenv').config()
 const config = {}
-const env = require('dotenv').config()
 
 config.guildid = "1140404810735173702" // Guild ID
 
 // Default Bot Settings
 config.bot = {
-    name: "Verify Bot",
-    color: "#2b2b2b",
-    avatar: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png",
+    token: process.env.TOKEN, // Bot Token (Change this in the .env File)
+    user: {
+        enabled: false, // If enabled the Name and Avatar will be overwritten and are permanent
+        name: "Verify Bot",
+        avatar: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png",
+    },
+    color: "#2b2b2b", // Default Embed Color
+    activity_enabled: true, // If disabled Bot wont override Activity (if multiple Bots are running on same Token)
     activitys: [
         {
             name: 'through the matrix',
@@ -25,7 +30,7 @@ config.bot = {
             status: 'online'
         }
     ],
-    intervall: 10 * 1000
+    intervall: 10 * 1000 // Intervall of Activity Change
 }
 
 config.server = {
