@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cert": "./cert.sh"
+    "cert": "./cert.sh",
+    "start": "node main.js"
   },
   "author": "d0dge",
   "license": "ISC",
