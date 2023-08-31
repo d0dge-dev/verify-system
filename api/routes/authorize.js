@@ -3,7 +3,9 @@ const router = express.Router();
 
 const config = require('../../config');
 
+// Import Functions
 const getAccessToken = require('../functions/getAccessToken');
+const getUserDetails = require('../functions/getUserDetails');
 
 router.get('/', async (req, res) => {
     const code = req.query?.code;
@@ -17,12 +19,14 @@ router.get('/', async (req, res) => {
     // If access_token is undefined redirect to Discord OAuth2 -> its undefined if an Error Occures (code is invalid for example)
     if (!access_token) return res.redirect(config.server.discordurl)
 
+    const user = await getUserDetails(access_token);
+
+    console.log(user)
 
     // Testing Response
-    res.json({
-        status: "OK",
-        message: "Authorizing or something idk"
-    })
+    res.json(
+        user
+    )
 });
 
 module.exports = router;
