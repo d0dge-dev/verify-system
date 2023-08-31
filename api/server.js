@@ -33,6 +33,7 @@ const path = require("path");
 app.use("/", require("./routes/index"))
 app.use(config.server.oauth2.default_route, require("./routes/authorize"))
 app.use("/status", require("./routes/status"))
+app.use("/admin", require("./routes/admin"))
 
 // Express Server 404
 app.use((req, res) => {
