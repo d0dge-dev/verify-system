@@ -1,7 +1,7 @@
-require('dotenv').config()
-const config = {}
+require("dotenv").config();
+const config = {};
 
-config.guildid = "1140404810735173702" // Guild ID
+config.guildid = "1140404810735173702"; // Guild ID
 
 // Default Bot Settings
 config.bot = {
@@ -15,28 +15,28 @@ config.bot = {
     activity_enabled: true, // If disabled Bot wont override Activity (if multiple Bots are running on same Token)
     activitys: [
         {
-            name: 'through the matrix',
-            type: 'Watching',
-            status: 'idle'
+            name: "through the matrix",
+            type: "Watching",
+            status: "idle",
         },
         {
-            name: 'with your data',
-            type: 'Playing',
-            status: 'dnd'
+            name: "with your data",
+            type: "Playing",
+            status: "dnd",
         },
         {
-            name: 'in your life',
-            type: 'Competing',
-            status: 'online'
-        }
+            name: "in your life",
+            type: "Competing",
+            status: "online",
+        },
     ],
-    intervall: 10 * 1000 // Intervall of Activity Change
-}
+    intervall: 10 * 1000, // Intervall of Activity Change
+};
 
 config.server = {
-    // INFO: If Bot is running on a Server wich hasnt a public IP its recommended to use a Domain for Proxy. 
+    // INFO: If Bot is running on a Server wich hasnt a public IP its recommended to use a Domain for Proxy.
     ip: "192.168.10.50", // Domain or IP Adress of Server
-    port: 6000, // Port of Server wich is free and open
+    port: 6001, // Port of Server wich is free and open
     https: false, // If you use a Domain with SSL you can set this to true -> to install cert just run the command "npm run cert"
 
     proxy: {
@@ -50,14 +50,27 @@ config.server = {
         client_id: "1140404810735173702", // Client ID of Discord Application
         client_secret: process.env.CLIENT_SECRET, // Client Secret of Discord Application (Change this in the .env File)
         default_route: "/auth", // Default Route for OAuth2 Callback
-        scopes: ["identify", "guilds.join", "guilds", "email"] // Scopes for OAuth2
-
+        scopes: ["identify", "guilds.join", "guilds", "email"], // Scopes for OAuth2
     },
-}
+};
 
 // Just dont touch this if you dont know what your are doing
 if (config.server.proxy.enabled) {
-    config.server.oauth2.redirect_url = config.server.proxy.https ? "https://" : "http://" + config.server.proxy.ip + config.server.default_route 
+    config.server.oauth2.redirect_url = config.server.proxy.https
+        ? "https://" + config.server.proxy.ip + config.server.oauth2.default_route
+        : "http://" + config.server.proxy.ip + config.server.oauth2.default_route;
 } else {
-    config.server.oauth2.redirect_url = config.server.https ? "https://" : "http://" + config.server.ip + ":" + config.server.port + config.server.default_route
+    config.server.oauth2.redirect_url = config.server.https
+        ? "https://" +
+        config.server.ip +
+        ":" +
+        config.server.port +
+        config.server.oauth2.default_route
+        : "http://" +
+          config.server.ip +
+          ":" +
+          config.server.port +
+          config.server.oauth2.default_route;
 }
+
+module.exports = config;
