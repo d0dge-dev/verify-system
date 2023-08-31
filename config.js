@@ -47,7 +47,7 @@ config.server = {
 
     // Check https://discord.com/developers/applications/ for more information
     oauth2: {
-        client_id: "1140404810735173702", // Client ID of Discord Application
+        client_id: "1140741872084598826", // Client ID of Discord Application
         client_secret: process.env.CLIENT_SECRET, // Client Secret of Discord Application (Change this in the .env File)
         default_route: "/auth", // Default Route for OAuth2 Callback
         scopes: ["identify", "guilds.join", "guilds", "email"], // Scopes for OAuth2
@@ -72,5 +72,7 @@ if (config.server.proxy.enabled) {
           config.server.port +
           config.server.oauth2.default_route;
 }
+
+config.server.discordurl = `https://discord.com/api/oauth2/authorize?client_id=${config.server.oauth2.client_id}&redirect_uri=${config.server.oauth2.redirect_url}&response_type=code&scope=${config.server.oauth2.scopes.join('%20')}`;
 
 module.exports = config;
