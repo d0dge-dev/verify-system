@@ -42,5 +42,5 @@ app.use((req, res) => {
 
 // Start Express Server
 server.listen(config.server.port, () => {
-    console.log(`Server is running on ${config.server.ip}:${config.server.port}`);
+    console.log(`- API Running ✓`);
 })

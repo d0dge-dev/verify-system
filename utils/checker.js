@@ -50,7 +50,10 @@ async function checkconfig() {
     await redircturl_check();
     console.log("- Config Valid ✓");
     // Starting API
+    console.log("- Starting API ...");
     require("../api/server")
+    console.log("- Starting Client ...");
+    require("../client/bot")
 }
 
 checkconfig();
