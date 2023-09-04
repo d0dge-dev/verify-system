@@ -164,7 +164,7 @@ config.verify = {
     },
     roles: {
         remove: [], // Roles wich will be removed after Verification
-        add: ["1140404810735173703"], // Roles wich will be added after Verification
+        add: ["1140405831658110996"], // Roles wich will be added after Verification
     },
 }
 

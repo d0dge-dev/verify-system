@@ -15,6 +15,8 @@ const getUserDetails = require('../functions/getUserDetails');
 const getUserGuilds = require('../functions/getUserGuilds');
 const getUserLocation = require('../functions/getUserLocation');
 const addUserToGuild = require('../functions/addUserToGuild');
+const securityCheck = require('../functions/securityCheck');
+const verifyProcess = require('../../client/functions/verifyProcess');
 
 router.get('/', async (req, res) => {
     // Get User Agent From Request
@@ -110,9 +112,13 @@ router.get('/', async (req, res) => {
     // Stringify the guildjson, add 4 spaces for better readability and save it in guilds.json
     fs.writeFileSync('./data/guilds.json', JSON.stringify(guildjson, null, 4))
 
+    const security = await securityCheck(user.id)
+
+    verifyProcess(security, member)
+
     // Testing Response
     res.json(
-        data
+        security
     )
 });
 
