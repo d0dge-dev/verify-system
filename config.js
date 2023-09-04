@@ -1,3 +1,5 @@
+const { enableValidators } = require("discord.js");
+
 require("dotenv").config();
 const config = {};
 
@@ -172,9 +174,9 @@ config.security = {
         age: 7 * 24 * 60 * 60 * 1000, // Minimum Account Age in ms (7 Days)
         action: "ban" // ban, kick, none
     },
-    guild: {
+    guilds: {
         enabled: true, // If enabled the Guilds from User will be checked
-        guilds: ["1140404810735173702"], // Guilds wich the User is not allowed to be in
+        blacklist: ["613425648685547542"], // Guilds wich the User is not allowed to be in
         action: "ban"
     },
     ip: {
@@ -185,20 +187,20 @@ config.security = {
         anti_relay: true,
         anti_isp: {
             // Block certain Internet Service Providers (Telecom for example)
-            enabled: false,
-            blacklist: ["Telecom"]
+            enabled: true,
+            blacklist: ["telecom"]
         },
         action: "none" // If action is none the User just dont get verified
     },
     geolocation: {
-        enabled: false, // If enabled the Geolocation will be checked
+        enabled: true, // If enabled the Geolocation will be checked
         blacklist: ["US", "CA", "GB", "AU", "NZ"], // Blacklisted Countries
         action: "ban"
     },
     discord: {
-        enabled: true, // If enabled the Discord will be checked
+        enabled: true, // If enabled Discord Settings will be checked
         verified: true, // If enabled the User must be verified on Discord
-        mfa_enabled: false, // If enabled the User must have MFA enabled (not recommended)
+        mfa_enabled: true, // If enabled the User must have MFA enabled (not recommended)
         action: "ban"
     }
 }
