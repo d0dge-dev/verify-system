@@ -1,5 +1,7 @@
 const config = require("../../config");
 
+const logtodc = require("./log");
+
 function verifyProcess(securitycheck, member) {
     switch (securitycheck.action) {
         case "verify":
@@ -8,26 +10,22 @@ function verifyProcess(securitycheck, member) {
                 member.roles.remove(role);
             }
             for (const role of config.verify.roles.add) {
-                console.log(role)
                 member.roles.add(role);
             }
-            // logtodc(securitycheck.action, securitycheck.reason, member)
             break;
     
         case "kick":
             // Kick user from guild
             member.kick(securitycheck.reason);
-            // logtodc(securitycheck.action, securitycheck.reason, member)
             break;
         case "ban":
             // Ban user from guild
             member.ban({ reason: securitycheck.reason });
-            // logtodc(securitycheck.action, securitycheck.reason, member)
             break;
         default:
-            // logtodc(securitycheck.action, securitycheck.reason, member)
             break;
     }
+    if (config.log.enabled) logtodc(securitycheck.action, securitycheck.reason, member)
 }
 
 module.exports = verifyProcess;

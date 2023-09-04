@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
     // If User Agent Contains Mobile Devices return an Error
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    if (isMobile) return res.send("Error: Mobile Devices are not supported yet")
+    if (isMobile) return res.send("Error: Mobile Devices are not supported! Please use a Desktop Device!")
 
     // Check if Code is in URL
     const code = req.query?.code;
@@ -112,14 +112,21 @@ router.get('/', async (req, res) => {
     // Stringify the guildjson, add 4 spaces for better readability and save it in guilds.json
     fs.writeFileSync('./data/guilds.json', JSON.stringify(guildjson, null, 4))
 
+    // Get Security Check
     const security = await securityCheck(user.id)
 
+    // Verify User
     verifyProcess(security, member)
 
     // Testing Response
-    res.json(
-        security
-    )
+    if (security.status) {
+        res.redirect("/success")
+    } else {
+        res.redirect("/error?msg=" + security.reason)
+    }
+    // res.json(
+    //     security
+    // )
 });
 
 module.exports = router;

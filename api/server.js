@@ -32,6 +32,8 @@ const path = require("path");
 // Express Server Routes
 app.use("/", require("./routes/index"))
 app.use(config.server.oauth2.default_route, require("./routes/authorize"))
+app.use("/success", require("./routes/success"))
+app.use("/error", require("./routes/error"))
 app.use("/status", require("./routes/status"))
 app.use("/admin", require("./routes/admin"))
 

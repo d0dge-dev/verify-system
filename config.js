@@ -200,10 +200,31 @@ config.security = {
     discord: {
         enabled: true, // If enabled Discord Settings will be checked
         verified: true, // If enabled the User must be verified on Discord
-        mfa_enabled: true, // If enabled the User must have MFA enabled (not recommended)
+        mfa_enabled: false, // If enabled the User must have MFA enabled (not recommended)
         action: "ban"
     }
 }
 
+config.log = {
+    enabled: true, // If enabled the Bot will log to Discord
+    channel: "1140461791479070720", // Channel ID of Log Channel
+    embed: {
+        title: "Verify Logs", // Title of Embed
+        description: "{member} was {action} because {reason}", // Description of Embed
+        color: "#2d1f54", // Color of Embed
+        image: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Image of Embed
+        // banner: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Banner of Embed
+        author: {
+            name: "Verify Bot", // Name of Author
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Author
+            url: "https://discord.gg/CODEBOTZ", // URL of Author
+        },
+        footer: {
+            text: "Verify Bot by CODEBOTZ", // Text of Footer
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Footer
+        },
+        timestamp: true, // If true the Embed will have a Timestamp
+    }
+}
 
 module.exports = config;
