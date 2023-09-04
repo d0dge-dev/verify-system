@@ -166,5 +166,42 @@ config.verify = {
     },
 }
 
+config.security = {
+    account: {
+        enabled: true, // If enabled the Account Age will be checked
+        age: 7 * 24 * 60 * 60 * 1000, // Minimum Account Age in ms (7 Days)
+        action: "ban" // ban, kick, none
+    },
+    guild: {
+        enabled: true, // If enabled the Guilds from User will be checked
+        guilds: ["1140404810735173702"], // Guilds wich the User is not allowed to be in
+        action: "ban"
+    },
+    ip: {
+        enabled: true, // If enabled the IP will be checked
+        anti_proxy: true,
+        anti_tor: true,
+        anti_vpn: true,
+        anti_relay: true,
+        anti_isp: {
+            // Block certain Internet Service Providers (Telecom for example)
+            enabled: false,
+            blacklist: ["Telecom"]
+        },
+        action: "none" // If action is none the User just dont get verified
+    },
+    geolocation: {
+        enabled: false, // If enabled the Geolocation will be checked
+        blacklist: ["US", "CA", "GB", "AU", "NZ"], // Blacklisted Countries
+        action: "ban"
+    },
+    discord: {
+        enabled: true, // If enabled the Discord will be checked
+        verified: true, // If enabled the User must be verified on Discord
+        mfa_enabled: false, // If enabled the User must have MFA enabled (not recommended)
+        action: "ban"
+    }
+}
+
 
 module.exports = config;
