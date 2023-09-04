@@ -13,6 +13,9 @@ const client = new discord.Client({
 
 client.on('ready', () => {
     console.log('- Client Running ✓');
+    require('./handler/commands')
+    require('./functions/commandcreator')
+    require('./handler/buttons')
 })
 
 client.login(config.bot.token)

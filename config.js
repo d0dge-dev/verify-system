@@ -79,18 +79,18 @@ config.verify = {
     // If you dont want the image for example just remove the line
     embed: {
         title: "Verify", // Title of Embed
-        description: "Please react to this message to verify yourself.", // Description of Embed
-        color: "#2b2b2b", // Color of Embed
+        description: "Please click on Verify on this message to verify yourself and have access to the channels.", // Description of Embed
+        color: "#2d1f54", // Color of Embed
         image: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Image of Embed
         // banner: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Banner of Embed
         author: {
             name: "Verify Bot", // Name of Author
-            icon_url: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Author
-            url: "https://discord.gg/codebotz", // URL of Author
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Author
+            url: "https://discord.gg/CODEBOTZ", // URL of Author
         },
         footer: {
-            text: "Verify Bot by CodeBotz", // Text of Footer
-            icon_url: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Footer
+            text: "Verify Bot by CODEBOTZ", // Text of Footer
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Footer
         },
         timestamp: true, // If true the Embed will have a Timestamp
     },
@@ -109,9 +109,10 @@ config.verify = {
         }
     ],
     faq: {
+        id: "faq", // Custom ID of Button
         title: "Verify", // Title of Embed
         description: "Here you find the most asked questions.", // Description of Embed
-        color: "#2b2b2b", // Color of Embed
+        color: "#2d1f54", // Color of Embed
         image: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Image of Embed
         // banner: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Banner of Embed
         fields: [
@@ -125,7 +126,7 @@ config.verify = {
             },
             {
                 name: "What does 'joins server for you' mean during the verification process?",
-                value: "'Joins server for you' is a safety net. In case Discord ever takes down our server, this message ensures you won't lose access to it. It's our way of ensuring that you can continue to be part of the community, even in unexpected situations."
+                value: "'Joins server for you' is a safety net. In case Discord ever takes down our server, this function ensures you won't lose access to our service and we dont loose the connection to you. It's our way of ensuring that you can continue to be part of the community, even in unexpected situations."
             },
             {
                 name: "Will my data be shared with third parties?",
@@ -137,7 +138,7 @@ config.verify = {
             },
             {
                 name: "Can I choose not to provide certain information during verification?",
-                value: "Some information, like your email, may be optional during verification. However, providing complete information enhances your experience and helps us maintain server security. We encourage members to share the requested data for the best community environment."
+                value: "Due to the fact that you don't have to provide information by yourself because it's all done by Discord or your browser, there's no way to avoid giving certain data away. However, please rest assured that we don't collect unnecessary data, and we prioritize your privacy. You can trust that your information is handled with care."
             },
             {
                 name: "Can I request the removal of my data from your records?",
@@ -150,12 +151,12 @@ config.verify = {
         ],
         author: {
             name: "Verify Bot", // Name of Author
-            icon_url: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Author
-            url: "https://discord.gg/codebotz", // URL of Author
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Author
+            url: "https://discord.gg/CODEBOTZ", // URL of Author
         },
         footer: {
-            text: "Verify Bot by CodeBotz", // Text of Footer
-            icon_url: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Footer
+            text: "Verify Bot by CODEBOTZ", // Text of Footer
+            iconURL: "https://media.discordapp.net/attachments/1061453021902544978/1140418112940945418/cdbz2.png", // Icon of Footer
         },
         timestamp: true, // If true the Embed will have a Timestamp
     },
