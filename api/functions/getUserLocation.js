@@ -3,7 +3,7 @@ require("dotenv").config();
 async function getUserLocation(req) {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
-    // hash the ip for privacy
+    // hash the ip for privacy (GDPR)
     const crypto = require('crypto');
     const hash = crypto.createHash('sha256');
     hash.update(ip);
@@ -26,6 +26,7 @@ async function getUserLocation(req) {
     }
     )
 
+    // Use https:///vpnapi.io/ to get Information about potentual VPN usage
     await fetch("https://vpnapi.io/api/" + ip + "?key=" + process.env.VPNAPI_TOKEN).then((response) => 
         response.json()
     ).then((jsonResponse) => {

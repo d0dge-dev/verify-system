@@ -1,5 +1,3 @@
-const { enableValidators } = require("discord.js");
-
 require("dotenv").config();
 const config = {};
 

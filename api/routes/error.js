@@ -4,7 +4,7 @@ const router = express.Router();
 const path = require("path");
 
 router.get('/', (req, res) => {
-    // redirect to authorize
+    // redirect to error page
     res.sendFile(path.resolve('./api/public/error.html'));
 });
 

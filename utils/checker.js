@@ -22,6 +22,7 @@ async function port_check() {
 }
 
 async function redircturl_check() {
+    // Checking if the App is correctly setup in developer portal
     await axios.get(`https://discord.com/api//applications/@me`, { headers: { Authorization: `Bot ${process.env.TOKEN}`}}).then((res) => {
         const redirect_url = res.data.redirect_uris
         if (!redirect_url) {
